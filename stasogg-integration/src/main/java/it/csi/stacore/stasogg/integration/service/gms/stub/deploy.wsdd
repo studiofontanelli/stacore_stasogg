@@ -1,0 +1,1398 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServiziTauService WSDL service -->
+
+  <service name="ServiziTauFCDSB" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="urn:gmsregsrv"/>
+      <parameter name="wsdlServiceElement" value="ServiziTauService"/>
+      <parameter name="schemaQualified" value="urn:gmsregsrv,http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="ServiziTauFCDSB"/>
+      <parameter name="className" value="it.csi.stacore.stasogg.integration.service.gms.stub.ServiziTauFCDSBSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ServiziTau"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <operation name="ricercaIdentitaDaID" qname="operNS:ricercaIdentitaDaID" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaIdentitaDaIDReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Identita" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaCFDaID" qname="operNS:ricercaCFDaID" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaCFDaIDReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaSoggettiSimili" qname="operNS:ricercaSoggettiSimili" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaSoggettiSimiliReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:AnagraficaDefinitiva" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:AnagraficaDefinitiva" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaStoricaSoggettoCF" qname="operNS:ricercaStoricaSoggettoCF" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaStoricaSoggettoCFReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Anagrafica" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="CodiceFiscaleNonValidoCsiException" qname="fns:fault5" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonValidoCsiException" type="tns:CodiceFiscaleNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="CodiceFiscaleNonCensitoCsiException" qname="fns:fault6" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonCensitoCsiException" type="tns:CodiceFiscaleNonCensitoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="elencoFontiDisponibili" qname="operNS:elencoFontiDisponibili" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:elencoFontiDisponibiliReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:FonteProvenienza" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaSoggettoCF" qname="operNS:ricercaSoggettoCF" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaSoggettoCFReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Anagrafica" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="CodiceFiscaleNonValidoCsiException" qname="fns:fault5" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonValidoCsiException" type="tns:CodiceFiscaleNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaSoggettoID" qname="operNS:ricercaSoggettoID" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaSoggettoIDReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Anagrafica" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaStoricaSoggettoID" qname="operNS:ricercaStoricaSoggettoID" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaStoricaSoggettoIDReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Anagrafica" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaIdentitaDaCF" qname="operNS:ricercaIdentitaDaCF" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaIdentitaDaCFReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Identita" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="CodiceFiscaleNonValidoCsiException" qname="fns:fault5" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonValidoCsiException" type="tns:CodiceFiscaleNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="CodiceFiscaleNonCensitoCsiException" qname="fns:fault6" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonCensitoCsiException" type="tns:CodiceFiscaleNonCensitoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaImpresa" qname="operNS:ricercaImpresa" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaImpresaReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:SoggettoImpresa" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaIndirizziID" qname="operNS:ricercaIndirizziID" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaIndirizziIDReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Indirizzo" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IndirizzoNonTrovatoCsiException" qname="fns:fault7" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IndirizzoNonTrovatoCsiException" type="tns:IndirizzoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaPersonaFisica" qname="operNS:ricercaPersonaFisica" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaPersonaFisicaReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:SoggettoPF" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaPersonaFisicaCompleta" qname="operNS:ricercaPersonaFisicaCompleta" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaPersonaFisicaCompletaReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:SoggettoPF" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:ModuloRicercaPF" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="listaSintetica" qname="operNS:listaSintetica" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:listaSinteticaReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Identita" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="aggiornaAnagraficaImpresa" qname="operNS:aggiornaAnagraficaImpresa" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:SoggettoImpresa" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="AggiornamentoImpossibileCsiException" qname="fns:fault9" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException" type="tns:AggiornamentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="aggiornaDomicilioFiscaleImpresa" qname="operNS:aggiornaDomicilioFiscaleImpresa" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:Indirizzo" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="AggiornamentoImpossibileCsiException" qname="fns:fault9" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException" type="tns:AggiornamentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="aggiornaDomicilioFiscalePersonaFisica" qname="operNS:aggiornaDomicilioFiscalePersonaFisica" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:Indirizzo" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="AggiornamentoImpossibileCsiException" qname="fns:fault9" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException" type="tns:AggiornamentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="aggiornaPersonaFisica" qname="operNS:aggiornaPersonaFisica" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:SoggettoPF" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="AggiornamentoImpossibileCsiException" qname="fns:fault9" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException" type="tns:AggiornamentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="inserisciDomicilioFiscalePersonaFisica" qname="operNS:inserisciDomicilioFiscalePersonaFisica" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:Indirizzo" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="InserimentoImpossibileCsiException" qname="fns:fault10" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileCsiException" type="tns:InserimentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="inserisciImpresa" qname="operNS:inserisciImpresa" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:inserisciImpresaReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:SoggettoImpresa" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="InserimentoImpossibileCsiException" qname="fns:fault10" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileCsiException" type="tns:InserimentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="inserisciIndirizzoSpedizione" qname="operNS:inserisciIndirizzoSpedizione" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:Indirizzo" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="InserimentoImpossibileCsiException" qname="fns:fault10" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileCsiException" type="tns:InserimentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="inserisciPersonaFisica" qname="operNS:inserisciPersonaFisica" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:inserisciPersonaFisicaReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:SoggettoPF" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="InserimentoImpossibileCsiException" qname="fns:fault10" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileCsiException" type="tns:InserimentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="inserisciSoggettoSimilePF" qname="operNS:inserisciSoggettoSimilePF" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:inserisciSoggettoSimilePFReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:SoggettoPF" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="InserimentoImpossibileCsiException" qname="fns:fault10" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileCsiException" type="tns:InserimentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="inserisciSoggettoSimilePG" qname="operNS:inserisciSoggettoSimilePG" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:inserisciSoggettoSimilePGReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:SoggettoImpresa" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="InserimentoImpossibileCsiException" qname="fns:fault10" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileCsiException" type="tns:InserimentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="LuogoNonInLimitiCsiException" qname="fns:fault8" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException" type="tns:LuogoNonInLimitiCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="modificaCodiceFiscale" qname="operNS:modificaCodiceFiscale" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:ModuloModificaCF" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="AggiornamentoImpossibileCsiException" qname="fns:fault9" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException" type="tns:AggiornamentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="modificaCodiceFiscaleImpresa" qname="operNS:modificaCodiceFiscaleImpresa" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:ModuloModificaCFImpresa" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="AggiornamentoImpossibileCsiException" qname="fns:fault9" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException" type="tns:AggiornamentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="modificaCodiceFiscalePersonaFisica" qname="operNS:modificaCodiceFiscalePersonaFisica" xmlns:operNS="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:ModuloModificaCFPersonaFisica" xmlns:tns="urn:gmsregsrv"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="AggiornamentoImpossibileCsiException" qname="fns:fault9" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException" type="tns:AggiornamentoImpossibileCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaPersonaFisicaWithAuthentication" qname="operNS:ricercaPersonaFisicaWithAuthentication" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaPersonaFisicaWithAuthenticationReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:SoggettoPF" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in2" xmlns:pns="urn:gmsregsrv" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in3" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="OggettoInputNonValidoCsiException" qname="fns:fault4" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException" type="tns:OggettoInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaIdentitaDaCFWithAuthentication" qname="operNS:ricercaIdentitaDaCFWithAuthentication" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaIdentitaDaCFWithAuthenticationReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Identita" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="CodiceFiscaleNonValidoCsiException" qname="fns:fault5" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonValidoCsiException" type="tns:CodiceFiscaleNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="CodiceFiscaleNonCensitoCsiException" qname="fns:fault6" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonCensitoCsiException" type="tns:CodiceFiscaleNonCensitoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaCFDaIDWithAuthentication" qname="operNS:ricercaCFDaIDWithAuthentication" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaCFDaIDWithAuthenticationReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaSoggettoIDWithAuthentication" qname="operNS:ricercaSoggettoIDWithAuthentication" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaSoggettoIDWithAuthenticationReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Anagrafica" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="IdInputNonValidoCsiException" qname="fns:fault1" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException" type="tns:IdInputNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <operation name="ricercaSoggettoCFWithAuthentication" qname="operNS:ricercaSoggettoCFWithAuthentication" xmlns:operNS="urn:gmsregsrv" returnQName="retNS:ricercaSoggettoCFWithAuthenticationReturn" xmlns:retNS="urn:gmsregsrv" returnType="rtns:Anagrafica" xmlns:rtns="urn:gmsregsrv" soapAction="" >
+        <parameter qname="pns:in0" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:in1" xmlns:pns="urn:gmsregsrv" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="UtenteNonAbilitatoCsiException" qname="fns:fault2" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException" type="tns:UtenteNonAbilitatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="CodiceFiscaleNonValidoCsiException" qname="fns:fault5" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonValidoCsiException" type="tns:CodiceFiscaleNonValidoCsiException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="GMSServizioIndisponibileException" qname="fns:fault3" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException" type="tns:GMSServizioIndisponibileException" xmlns:tns="urn:gmsregsrv"/>
+        <fault name="SoggettoNonTrovatoCsiException" qname="fns:fault" xmlns:fns="urn:gmsregsrv" class="it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException" type="tns:SoggettoNonTrovatoCsiException" xmlns:tns="urn:gmsregsrv"/>
+      </operation>
+      <parameter name="allowedMethods" value="ricercaSoggettiSimili ricercaIdentitaDaID ricercaImpresa ricercaCFDaID ricercaSoggettoID ricercaIdentitaDaCFWithAuthentication ricercaIdentitaDaCF inserisciImpresa modificaCodiceFiscaleImpresa inserisciIndirizzoSpedizione inserisciDomicilioFiscalePersonaFisica elencoFontiDisponibili listaSintetica ricercaPersonaFisica aggiornaPersonaFisica ricercaSoggettoCFWithAuthentication modificaCodiceFiscale ricercaStoricaSoggettoID aggiornaDomicilioFiscaleImpresa inserisciSoggettoSimilePF ricercaPersonaFisicaWithAuthentication inserisciSoggettoSimilePG inserisciPersonaFisica aggiornaAnagraficaImpresa ricercaSoggettoIDWithAuthentication ricercaSoggettoCF ricercaPersonaFisicaCompleta modificaCodiceFiscalePersonaFisica ricercaIndirizziID aggiornaDomicilioFiscalePersonaFisica ricercaStoricaSoggettoCF ricercaCFDaIDWithAuthentication"/>
+
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IndirizzoDefinitivo"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IndirizzoDefinitivo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:DateGMS"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.DateGMS"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaPersonaFisicaWithAuthenticationResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaPersonaFisicaWithAuthenticationResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettiSimili"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettiSimili"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaDomicilioFiscalePersonaFisicaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaDomicilioFiscalePersonaFisicaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:CodiceFiscaleNonCensitoCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonCensitoCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:DettaglioToponomastica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.DettaglioToponomastica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:CodiceFiscaleNonValidoCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonValidoCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>modificaCodiceFiscalePersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModificaCodiceFiscalePersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Civico"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Civico"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:ModuloModificaCFImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModuloModificaCFImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdentitaImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdentitaImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:SoggettoNonTrovatoException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaDomicilioFiscalePersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaDomicilioFiscalePersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdInputNonValidoException.ErrorCode"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoExceptionErrorCode"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaPersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaPersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoIDWithAuthenticationResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoIDWithAuthenticationResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:SoggettoPF"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoPF"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Indirizzo"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Indirizzo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaStoricaSoggettoIDResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaStoricaSoggettoIDResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaPersonaFisicaWithAuthentication"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaPersonaFisicaWithAuthentication"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>elencoFontiDisponibili"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ElencoFontiDisponibili"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaPersonaFisicaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaPersonaFisicaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciDomicilioFiscalePersonaFisicaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciDomicilioFiscalePersonaFisicaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IndirizzoNonTrovatoCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IndirizzoNonTrovatoCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>modificaCodiceFiscaleResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModificaCodiceFiscaleResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>modificaCodiceFiscale"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModificaCodiceFiscale"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdentitaProvvisoriaPersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdentitaProvvisoriaPersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:TipoIndirizzo"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.TipoIndirizzo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdInputNonValidoCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IndirizzoEstero"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IndirizzoEstero"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:ModuloRicercaPF"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModuloRicercaPF"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:AggiornamentoImpossibileException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Via"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Via"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:ModuloModificaCF"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModuloModificaCF"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaPersonaFisicaCompletaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaPersonaFisicaCompletaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdentitaPersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdentitaPersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIndirizziID"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIndirizziID"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaPersonaFisicaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaPersonaFisicaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoCFWithAuthentication"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoCFWithAuthentication"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:LuogoNonInLimitiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:SoggettoNonTrovatoCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIdentitaDaCFResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIdentitaDaCFResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaStoricaSoggettoCFResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaStoricaSoggettoCFResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IndirizzoNonTrovatoException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IndirizzoNonTrovatoException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:GMSServizioIndisponibileException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.GMSServizioIndisponibileException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:GMSAbstractObject"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.GMSAbstractObject"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaImpresaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaImpresaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:LuogoNonInLimitiCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonInLimitiCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoCF"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoCF"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:InserimentoImpossibileCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaAnagraficaImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaAnagraficaImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaStoricaSoggettoCF"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaStoricaSoggettoCF"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaPersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaPersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:ModuloModificaCFPersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModuloModificaCFPersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:OggettoInputNonValidoCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>listaSinteticaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ListaSinteticaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:FonteProvenienza"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.FonteProvenienza"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoIDWithAuthentication"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoIDWithAuthentication"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:StatoIndirizzo"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.StatoIndirizzo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Regione"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Regione"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:CSIException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.CSIException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:CodiceFiscaleNonCensitoException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonCensitoException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:AggiornamentoImpossibileException.ErrorCode"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileExceptionErrorCode"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciSoggettoSimilePFResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciSoggettoSimilePFResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoCFWithAuthenticationResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoCFWithAuthenticationResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Luogo"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Luogo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IndirizzoProvvisorio"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IndirizzoProvvisorio"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:UtenteNonAbilitatoCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:LuogoNazionale"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNazionale"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>listaSintetica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ListaSintetica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIdentitaDaCFWithAuthenticationResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIdentitaDaCFWithAuthenticationResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaCFDaIDResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaCFDaIDResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:OggettoInputNonValidoException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.OggettoInputNonValidoException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciImpresaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciImpresaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>modificaCodiceFiscalePersonaFisicaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModificaCodiceFiscalePersonaFisicaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:GMSAbstractException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.GMSAbstractException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IndirizzoNazionale"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IndirizzoNazionale"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:InserimentoImpossibileException.ErrorCode"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileExceptionErrorCode"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Identita"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Identita"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaCFDaID"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaCFDaID"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettiSimiliResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettiSimiliResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:AbstractLuogoNazionale"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AbstractLuogoNazionale"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdentitaDefinitiva"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdentitaDefinitiva"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:CodiceFiscale"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscale"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>elencoFontiDisponibiliResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ElencoFontiDisponibiliResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciSoggettoSimilePF"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciSoggettoSimilePF"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciSoggettoSimilePG"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciSoggettoSimilePG"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIdentitaDaID"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIdentitaDaID"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIdentitaDaIDResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIdentitaDaIDResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciDomicilioFiscalePersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciDomicilioFiscalePersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaStoricaSoggettoID"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaStoricaSoggettoID"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaDomicilioFiscaleImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaDomicilioFiscaleImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>modificaCodiceFiscaleImpresaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModificaCodiceFiscaleImpresaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdInputNonValidoException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdInputNonValidoException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Anagrafica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Anagrafica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Cittadinanza"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Cittadinanza"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Attivita"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Attivita"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>modificaCodiceFiscaleImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.ModificaCodiceFiscaleImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:StatoAnagraficoSoggetto"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.StatoAnagraficoSoggetto"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciPersonaFisica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciPersonaFisica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:IdentitaProvvisoriaImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.IdentitaProvvisoriaImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIndirizziIDResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIndirizziIDResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciSoggettoSimilePGResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciSoggettoSimilePGResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:AltroLuogo"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AltroLuogo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:FonteRiferimento"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.FonteRiferimento"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaPersonaFisicaCompleta"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaPersonaFisicaCompleta"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:AggiornamentoImpossibileCsiException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornamentoImpossibileCsiException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoID"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoID"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:UtenteNonAbilitatoException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.UtenteNonAbilitatoException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaDomicilioFiscaleImpresaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaDomicilioFiscaleImpresaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:LuogoNascitaFiltroRicerca"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNascitaFiltroRicerca"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoIDResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoIDResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:NaturaGiuridica"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.NaturaGiuridica"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>aggiornaAnagraficaImpresaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AggiornaAnagraficaImpresaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:InserimentoImpossibileException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserimentoImpossibileException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaSoggettoCFResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaSoggettoCFResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaCFDaIDWithAuthentication"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaCFDaIDWithAuthentication"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:SoggettoNonTrovatoException.ErrorCode"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoNonTrovatoExceptionErrorCode"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaCFDaIDWithAuthenticationResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaCFDaIDWithAuthenticationResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Comune"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Comune"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:StatoSoggetto"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.StatoSoggetto"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIdentitaDaCFWithAuthentication"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIdentitaDaCFWithAuthentication"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciIndirizzoSpedizioneResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciIndirizzoSpedizioneResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:SoggettoImpresa"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.SoggettoImpresa"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:SystemException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.SystemException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:AnagraficaDefinitiva"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.AnagraficaDefinitiva"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciIndirizzoSpedizione"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciIndirizzoSpedizione"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>inserisciPersonaFisicaResponse"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.InserisciPersonaFisicaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:>ricercaIdentitaDaCF"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.RicercaIdentitaDaCF"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:Provincia"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.Provincia"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:LuogoNonCensito"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.LuogoNonCensito"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:CodiceFiscaleNonValidoException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.CodiceFiscaleNonValidoException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="urn:gmsregsrv"
+        qname="ns:UserException"
+        type="java:it.csi.stacore.stasogg.integration.service.gms.stub.UserException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

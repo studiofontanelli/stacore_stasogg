@@ -9,6 +9,10 @@ info:
 tags:
 - name: test
   description: test resources
+- name: proprietario
+  description: soggetto proprietario di un veicolo
+- name: soggetto
+  description: soggetto
   
 
 # basePath: /api
@@ -16,6 +20,7 @@ tags:
 #    - http
 
 paths:
+  
   /test/resources:
     get:
       tags:
@@ -34,7 +39,151 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/ErrorDto'
+  
+  /soggetto/{codiceFiscale}:
+    get:
+      tags:
+        - soggetto
+      summary: ricerca Soggetto
+      description: Recupera il soggetto dato il codice fiscale
+      operationId: ricercaSoggetto
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: codiceFiscale
+          type: string
+          required: true
+          description: "Codice fiscale proprietario"
+      responses:
+        200:
+          description: Elenco soggetti trovati
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Proprietario'
+        400:
+          description: "Parametro non valorizzato"
+        404:
+          description: "Soggetto non trovato"
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'    
+  /soggetto/{idGms}/{idProprietario}:
+    get:
+      tags:
+        - soggetto
+      summary: ricerca Soggetto dato idGMS e id Proprietario
+      description: Recupera il soggetto dato l'id GMS e id Proprietario
+      operationId: loadById
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: idGms
+          type: integer
+          format: int64
+          required: true
+          description: "ID GMS"
+        - in: path
+          name: idProprietario
+          type: integer
+          format: int64
+          required: true
+          description: "ID PROPRIETARIO"
+      responses:
+        200:
+          description: Elenco soggetti trovati
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Proprietario'
+        400:
+          description: "Parametro non valorizzato"
+        404:
+          description: "Soggetto non trovato"
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'   
+  
+  /soggetto/pg:
+    get:
+      tags:
+        - soggetto
+      summary: ricerca Soggetto Persona giuridica
+      description: Recupera il soggetto impresa data la denominazione
+      operationId: ricercaSoggettoPG
+      produces:
+      - application/json
+      parameters:
+        - in: query
+          name: denominazione
+          type: string
+          required: true
+          description: "La denominazione dell'impresa"
+      responses:
+        200:
+          description: Elenco soggetti trovati
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Proprietario'
+        400:
+          description: "Parametro non valorizzato"
+        404:
+          description: "Soggetto non trovato"
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto' 
+            
+  /soggetto/pf:
+    get:
+      tags:
+        - soggetto
+      summary: ricerca Soggetto Persona Fisica
+      description: Recupera il soggetto persona fisica dato nome e cognome
+      operationId: ricercaSoggettoPF
+      produces:
+      - application/json
+      parameters:
+        - in: query
+          name: nome
+          type: string
+          required: true
+          description: "Il nome del soggetto"
+        - in: query
+          name: cognome
+          type: string
+          required: true
+          description: "Il cognome del soggetto"
+      responses:
+        200:
+          description: Elenco soggetti trovati
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Proprietario'
+        400:
+          description: "Parametro non valorizzato"
+        404:
+          description: "Soggetto non trovato"
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'    
+          
 definitions:
+  Proprietario:
+    type: object
+    description: Entità che definisce il soggetto proprietario di un veicolo
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: pk proprietario
   GenericResponse:
     type: object
     description: Risposta di un servizio generico
@@ -90,4 +239,6 @@ schemes:
 # Added by API Auto Mocking Plugin
 # basePath: /andreafontanelli/stacomunicazionesrv/1.0.0
 # Added by API Auto Mocking Plugin
-basePath: /andreafontanelli/staconsultazionesrv/1.0.0
+# basePath: /andreafontanelli/staconsultazionesrv/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /andreafontanelli/stasogg/1.0.0

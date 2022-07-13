@@ -3,9 +3,13 @@
  **********************************************/
 package it.csi.stacore.stasogg.api.service;
 
+import it.csi.stacore.stasogg.api.dto.*;
+
 import io.swagger.annotations.ApiParam;
 import io.swagger.jaxrs.*;
-import it.csi.stacore.stasogg.api.dto.*;
+
+import it.csi.stacore.stasogg.api.dto.ErrorDto;
+import it.csi.stacore.stasogg.api.dto.GenericResponse;
 
 import java.util.List;
 import java.util.Map;

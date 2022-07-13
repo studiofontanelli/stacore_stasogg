@@ -8,8 +8,8 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>stasogg-api</artifactId>
-	
-	
+
+
 	<packaging>war</packaging>
 
 	<dependencies>
@@ -24,7 +24,57 @@
 			<artifactId>stasogg-dto</artifactId>
 			<version>${version}</version>
 		</dependency>
+		
+		
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-core</artifactId>
+			<version>${csi.lib.version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-stadapter</artifactId>
+			<version>${csi.lib.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-ejb</artifactId>
+			<version>${csi.lib.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-rmi</artifactId>
+			<version>${csi.lib.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-apachesoap</artifactId>
+			<version>${csi.lib.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.coopdiag</groupId>
+			<artifactId>coop-diag</artifactId>
+			<version>${coop-diag.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.wlsclient</groupId>
+			<artifactId>weblogic-client</artifactId>
+			<version>${weblogic-client.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.util</groupId>
+			<artifactId>util-perf</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+		
 
 		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
 		<dependency>
