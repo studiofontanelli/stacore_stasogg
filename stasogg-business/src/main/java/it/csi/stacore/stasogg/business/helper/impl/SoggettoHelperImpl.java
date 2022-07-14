@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.csi.stacore.stasogg.api.dto.Proprietario;
+import it.csi.stacore.stasogg.business.adapter.AnagraficaProprietarioAdapter;
 import it.csi.stacore.stasogg.business.dto.ErrorDetailDto;
 import it.csi.stacore.stasogg.business.exception.HelperException;
 import it.csi.stacore.stasogg.business.exception.ValidationException;
 import it.csi.stacore.stasogg.business.helper.SoggettoHelper;
+import it.csi.stacore.stasogg.integration.exception.CodiceFiscaleInvalidException;
 import it.csi.stacore.stasogg.integration.exception.IntegrationException;
 import it.csi.stacore.stasogg.integration.service.gms.GmsService;
 import it.csi.stacore.stasogg.util.Tracer;
@@ -24,7 +26,9 @@ public class SoggettoHelperImpl extends CommonHelperImpl implements SoggettoHelp
 	@Autowired
 	private GmsService gmsService;
 	
-
+	@Autowired
+	private AnagraficaProprietarioAdapter anagraficaProprietarioAdapter;
+	
 	@PostConstruct
 	public void init() {
 		final String method = "init";
@@ -82,6 +86,11 @@ public class SoggettoHelperImpl extends CommonHelperImpl implements SoggettoHelp
 			gmsService.ricercaSoggettoCF(codiceFiscale);
 			
 			
+			anagraficaProprietarioAdapter.convertTo(gmsService.ricercaSoggettoCF(codiceFiscale));
+			
+		} catch (CodiceFiscaleInvalidException e) {
+			Tracer.error(LOG, getClass().getName(), method, "CodiceFiscaleInvalidException " + e);
+			throw new ValidationException("Codice fiscale non valido");
 		} catch (IntegrationException e) {
 			Tracer.error(LOG, getClass().getName(), method, "IntegrationException " + e);
 			throw new HelperException(e.getMessage());

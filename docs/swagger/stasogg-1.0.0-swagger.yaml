@@ -184,6 +184,12 @@ definitions:
         type: integer
         format: int64
         description: pk proprietario
+      idGms:
+        type: integer
+        format: int64
+        description: idGms
+  
+  
   GenericResponse:
     type: object
     description: Risposta di un servizio generico
